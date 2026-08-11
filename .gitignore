@@ -1,0 +1,34 @@
+# Dépendances
+node_modules/
+
+# Build
+dist/
+
+# Client Prisma généré
+src/generated/
+
+# Variables d'environnement
+.env
+.env.*
+!.env.example
+
+# Tests
+coverage/
+test-results/
+playwright-report/
+blob-report/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS / éditeurs
+.DS_Store
+*.swp
+
+/src/generated/prisma
+
+/prisma/src/generated/prisma
