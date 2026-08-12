@@ -1,11 +1,7 @@
 import type { CorsOptions } from 'cors'
+import { env } from './env.js'
 
 export const corsOptions: CorsOptions = {
-  origin: [
-    'http://localhost:5173',
-    'http://localhost:5174',
-    'http://localhost:5175',
-    'http://localhost:5176',
-  ],
+  origin: env.corsOrigins,
   credentials: true,
 }
