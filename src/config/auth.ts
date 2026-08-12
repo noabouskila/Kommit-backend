@@ -4,7 +4,6 @@ import { createAuthMiddleware, APIError } from 'better-auth/api'
 import { prisma } from './prisma.js'
 import { env } from './env.js'
 import { validateSignupInput } from '../services/authValidation.js'
-import { normalizeEmail } from '../services/normalizeEmail.js'
 
 const validateSignup = createAuthMiddleware(async (ctx) => {
   if (ctx.path !== '/sign-up/email') return
@@ -20,10 +19,7 @@ const validateSignup = createAuthMiddleware(async (ctx) => {
 
   return {
     context: {
-      body: {
-        ...validation.data,
-        email: normalizeEmail(validation.data.email),
-      },
+      body: validation.data,
     },
   }
 })

@@ -24,7 +24,13 @@ const handler: typeof auth.handler = async (request) => {
         { status: 500, headers },
       )
     }
-    return response
+    const headers = new Headers(response.headers)
+    headers.delete('content-length')
+    headers.set('content-type', 'application/json')
+    return new Response(
+      JSON.stringify({ code: 'BAD_REQUEST', message: 'Requête invalide' }),
+      { status: response.status, headers },
+    )
   }
 
   const headers = new Headers(response.headers)
