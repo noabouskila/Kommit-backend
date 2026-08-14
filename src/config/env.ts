@@ -19,5 +19,5 @@ export const env = {
   betterAuthSecret: requireEnv('BETTER_AUTH_SECRET'),
   authUrl,
   corsOrigins,
-  crossSiteCookies: authUrl.startsWith('https://'),
+  crossSiteCookies: (process.env.CROSS_SITE_COOKIES ?? (authUrl.startsWith('https://') ? 'true' : 'false')) === 'true',
 }
